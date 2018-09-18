@@ -16,19 +16,19 @@ var webRouter = require('./webRouter');
 var errorhandler = require('errorhandler');
 var config = require('./config');                //引入配置表
 var mongoose = require('mongoose');
-
+require('./model/index');                        //MongoDB的操作
 
 var app=express();
 
-mongoose.connect(config.db, function (err) {
-  if (err) {
-    console.error('connect to %s error: ', config.db, err.message);
-    process.exit(1);
-  }else{
-    console.log('mongodb is connecting');
-  }
-});
-
+// mongoose.connect(config.db, function (err) {
+//   if (err) {
+//     console.error('connect to %s error: ', config.db, err.message);
+//     process.exit(1);
+//   }else{
+//     console.log('mongodb is connecting');
+//   }
+// });
+ 
 //静态文件目录
 var staticDir = path.join(__dirname,'public');
 //路由

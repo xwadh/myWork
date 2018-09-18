@@ -3,8 +3,8 @@ var router = express.Router();
 var logger = require('./common/logger');
 
 //homepage
-router.get('/',function(err,res,req){
-        res.send('HELLO');
+router.get('/index',function(err,res,req){
+        res.render('index',{title:'后台登陆'});
 });
 
 //login
