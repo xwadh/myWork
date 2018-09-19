@@ -17,4 +17,4 @@ require('./user');
 require('./bag');
 
 exports.User = mongoose.model('User');
-exports.Bag  = mongoose.model('Bag');
+//exports.Bag  = mongoose.model('Bag');
