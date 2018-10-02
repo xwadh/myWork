@@ -11,8 +11,14 @@ exports.findUserByName = function(name,password,callback){
 };
 
 //创建新用户
-exports.addUser = function(name,password,sex,date,callback){
+exports.addUser = function(name,password,sex,date,uuid,callback){
     // if()
-    User.create({name,password,sex,date},callback);
+    User.create({
+        name        : name,
+        password    : password,
+        sex         : sex,
+        createTime  : date,
+        uuid        : uuid
+    },callback);
 }
 

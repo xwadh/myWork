@@ -1,4 +1,4 @@
-var User = require('../proxy').User;
+// var User = require('../proxy').User;
 
 
 class loginMiddle{
