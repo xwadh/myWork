@@ -4,7 +4,7 @@ var uuid = require('node-uuid');
 
 //根据用户名，密码登陆
 exports.findUserByName = function(name,password,callback){
-    if(name === null || password === null){
+    if(!name || !password ){
         return callback(null,[]);
     }
     User.findOne({name:name,password:password},callback);
@@ -15,7 +15,7 @@ exports.addUser = function(name,password,sex,date,uuid,callback){
     // if()
     User.create({
         name        : name,
-        password    : password,
+        password    : password,  
         sex         : sex,
         createTime  : date,
         uuid        : uuid

@@ -20,15 +20,8 @@ require('./model/index');                        //MongoDB的操作
 
 var app=express();
 
-// mongoose.connect(config.db, function (err) {
-//   if (err) {
-//     console.error('connect to %s error: ', config.db, err.message);
-//     process.exit(1);
-//   }else{
-//     console.log('mongodb is connecting');
-//   }
-// });
- 
+app.use(bodyParser.json());           
+app.use(bodyParser.urlencoded({ extended: true}));  
 //静态文件目录
 var staticDir = path.join(__dirname,'public');
 //路由
@@ -40,9 +33,7 @@ app.set('view engine', 'ejs');                   //启用ejs模板
 app.use('./public',express.static(staticDir));
 
 app.use(require('response-time')());            //引用反应时间
-app.use(helmet.frameguard('sameorigin'));       //helmet
-app.use(bodyParser.json({limit: '1mb'}));           
-app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));    
+app.use(helmet.frameguard('sameorigin'));       //helmet  
 app.use(require('method-override')());          //扩展http请求
 app.use(require('cookie-parser')(config.session_secret));
 app.use(compress());
